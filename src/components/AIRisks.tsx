@@ -1,4 +1,5 @@
 import React from 'react';
+import risksImage from '../assets/images/foreign_llm_visual_1774355291918.png';
 
 const risks = [
   {
@@ -119,6 +120,13 @@ const AIRisks: React.FC = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="cases-image-container" style={{ textAlign: 'center', marginTop: '2rem' }}>
+        <img
+          src={risksImage}
+          alt="Анализ рисков при работе с ИИ"
+          className="rounded-image wide-image hover-zoom"
+        />
       </div>
     </section>
   );

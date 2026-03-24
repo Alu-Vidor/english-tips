@@ -1,4 +1,5 @@
 import React from 'react';
+import promptingImage from '../assets/images/prompting_anime_student_1774356728359.png';
 
 const promptTemplates = [
   {
@@ -100,7 +101,7 @@ const PromptingBasics: React.FC = () => {
       <div className="content-grid two-cols">
         <div className="image-wrapper">
           <img
-            src="/english-tips/prompting_anime_student_1774356728359.png"
+            src={promptingImage}
             alt="Преподаватель проектирует учебный промпт"
             className="rounded-image"
           />

@@ -1,4 +1,5 @@
 import React from 'react';
+import heroImage from '../assets/images/hero_anime_teacher_1774356712870.png';
 
 const HeroSection: React.FC = () => {
   return (
@@ -42,7 +43,7 @@ const HeroSection: React.FC = () => {
       </div>
       <div className="hero-image-container">
         <img
-          src="/english-tips/hero_anime_teacher_1774356712870.png"
+          src={heroImage}
           alt="Преподаватель английского языка использует ИИ-инструменты"
           className="hero-image floating-anim"
         />

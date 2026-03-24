@@ -1,4 +1,5 @@
 import React from 'react';
+import foreignImage from '../assets/images/foreign_anime_models_1774356744289.png';
 
 const foreignTools = [
   {
@@ -51,7 +52,7 @@ const ForeignModels: React.FC = () => {
         </div>
         <div className="image-wrapper">
           <img
-            src="/english-tips/foreign_anime_models_1774356744289.png"
+            src={foreignImage}
             alt="Использование зарубежных ИИ-моделей в языковом обучении"
             className="rounded-image glow-blue"
           />

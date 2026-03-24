@@ -1,4 +1,5 @@
 import React from 'react';
+import russianImage from '../assets/images/russian_anime_models_1774356760741.png';
 
 const russianTools = [
   {
@@ -30,7 +31,7 @@ const RussianModels: React.FC = () => {
       <div className="content-grid two-cols">
         <div className="image-wrapper">
           <img
-            src="/english-tips/russian_anime_models_1774356760741.png"
+            src={russianImage}
             alt="Использование российских ИИ-сервисов в обучении"
             className="rounded-image glow-purple"
           />

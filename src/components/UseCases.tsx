@@ -1,4 +1,5 @@
 import React from 'react';
+import useCasesImage from '../assets/images/use_cases_anime_1774356776217.png';
 
 const cases = [
   {
@@ -169,7 +170,7 @@ const UseCases: React.FC = () => {
 
       <div className="cases-image-container">
         <img
-          src="/english-tips/use_cases_anime_1774356776217.png"
+          src={useCasesImage}
           alt="Сценарии применения ИИ в преподавании английского"
           className="rounded-image wide-image hover-zoom"
         />

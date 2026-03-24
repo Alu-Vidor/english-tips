@@ -1,4 +1,5 @@
 import React from 'react';
+import servicesImage from '../assets/images/services_anime_1774356791883.png';
 
 const services = [
   {
@@ -95,7 +96,7 @@ const UsefulServices: React.FC = () => {
         </div>
         <div className="image-wrapper">
           <img
-            src="/english-tips/services_anime_1774356791883.png"
+            src={servicesImage}
             alt="Подборка ИИ-сервисов для преподавателя"
             className="rounded-image glow-purple"
           />

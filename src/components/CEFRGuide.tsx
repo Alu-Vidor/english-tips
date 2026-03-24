@@ -1,4 +1,5 @@
 import React from 'react';
+import cefrImage from '../assets/images/use_cases_education_1774355321852.png';
 
 const levels = [
   {
@@ -122,6 +123,13 @@ const CEFRGuide: React.FC = () => {
 - 5 useful phrases.
 
 В конце кратко поясни, чем отличаются когнитивная и языковая сложность двух версий.`}</pre>
+      </div>
+      <div className="cases-image-container" style={{ textAlign: 'center', marginTop: '2rem' }}>
+        <img
+          src={cefrImage}
+          alt="Уровни языка CEFR"
+          className="rounded-image wide-image hover-zoom"
+        />
       </div>
     </section>
   );
