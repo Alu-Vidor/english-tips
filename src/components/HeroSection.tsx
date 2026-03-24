@@ -35,8 +35,8 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
         <div className="hero-actions">
-          <a href="#prompting" className="btn-primary">
-            Перейти к промптам
+          <a href="#tabs" className="btn-primary">
+            Открыть рабочие вкладки
           </a>
         </div>
       </div>

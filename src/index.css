@@ -33,6 +33,10 @@ body {
   overflow-x: hidden;
 }
 
+button {
+  font: inherit;
+}
+
 body::before {
   content: '';
   position: fixed;
@@ -85,19 +89,30 @@ body::before {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  gap: 0.6rem;
 }
 
-.nav-links a {
+.nav-tab {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
   color: var(--text-primary);
-  text-decoration: none;
-  margin-left: 1.5rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  transition: color 0.3s ease;
+  padding: 0.65rem 0.95rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
-.nav-links a:hover {
+.nav-tab:hover,
+.overview-card:hover {
+  border-color: rgba(115, 167, 236, 0.35);
   color: var(--accent-hover);
+}
+
+.nav-tab.active,
+.overview-card.selected {
+  background: rgba(74, 163, 223, 0.14);
+  border-color: rgba(115, 167, 236, 0.5);
+  color: var(--text-primary);
 }
 
 .hero-section {
@@ -223,8 +238,65 @@ body::before {
   }
 }
 
+.tab-shell {
+  padding: 0 4rem 4rem;
+}
+
+.tab-intro {
+  padding: 1.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.left-aligned {
+  text-align: left;
+}
+
+.tab-intro-text {
+  color: var(--text-secondary);
+  max-width: 780px;
+  margin-bottom: 1.4rem;
+}
+
+.tab-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.tab-overview-grid.expanded-tabs {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.overview-card {
+  text-align: left;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.overview-card strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--text-primary);
+}
+
+.overview-card span {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.tab-panel {
+  min-height: 60vh;
+  overflow: hidden;
+}
+
 .section-container {
-  padding: 5.5rem 4rem;
+  padding: 3rem 3rem 3.5rem;
+}
+
+.tab-section {
+  padding-top: 2.8rem;
 }
 
 .dark-alt {
@@ -300,7 +372,8 @@ body::before {
 .case-card p,
 .info-card p,
 .panel-lead,
-.footer p {
+.footer p,
+.prompt-card p {
   color: var(--text-secondary);
 }
 
@@ -335,7 +408,8 @@ body::before {
 .card-grid,
 .info-grid,
 .prompt-grid,
-.workflow-grid {
+.workflow-grid,
+.matrix-grid {
   display: grid;
   gap: 1.2rem;
 }
@@ -351,7 +425,8 @@ body::before {
 .prompt-example,
 .pro-tip,
 .workflow-step,
-.case-card {
+.case-card,
+.matrix-card {
   border-radius: 18px;
 }
 
@@ -359,7 +434,8 @@ body::before {
 .info-card,
 .prompt-card,
 .case-card,
-.workflow-step {
+.workflow-step,
+.matrix-card {
   padding: 1.35rem;
 }
 
@@ -399,13 +475,35 @@ body::before {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.matrix-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .prompt-card pre,
-.prompt-example pre {
+.prompt-example pre,
+.matrix-card pre {
   white-space: pre-wrap;
   font-family: 'Consolas', 'Courier New', monospace;
   color: #d8e7ff;
   font-size: 0.92rem;
   line-height: 1.65;
+  margin-top: 0.9rem;
+}
+
+.matrix-card {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.matrix-card h4 {
+  font-size: 1.14rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.matrix-card p {
+  color: var(--text-secondary);
+  margin-bottom: 0.65rem;
 }
 
 .cases-grid {
@@ -446,6 +544,10 @@ body::before {
   margin-top: 1.4rem;
 }
 
+.lesson-stage-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
 .workflow-step {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -474,16 +576,24 @@ body::before {
   border-radius: 20px;
 }
 
+@media (max-width: 1280px) {
+  .tab-overview-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 1120px) {
   .hero-highlights,
-  .workflow-grid {
+  .workflow-grid,
+  .lesson-stage-grid {
     grid-template-columns: 1fr;
   }
 
   .prompt-grid,
   .card-grid,
   .info-grid,
-  .cases-grid {
+  .cases-grid,
+  .matrix-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -494,7 +604,9 @@ body::before {
   .prompt-grid,
   .card-grid,
   .info-grid,
-  .cases-grid {
+  .cases-grid,
+  .tab-overview-grid,
+  .matrix-grid {
     grid-template-columns: 1fr;
   }
 
@@ -505,7 +617,8 @@ body::before {
 
   .section-container,
   .hero-section,
-  .navbar {
+  .navbar,
+  .tab-shell {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
@@ -529,6 +642,11 @@ body::before {
   .hero-subtitle {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .section-container {
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
   }
 
   .footer {

@@ -17,13 +17,13 @@ const services = [
     title: 'MagicSchool',
     color: '#3498db',
     description:
-      'Предлагает набор готовых педагогических сценариев: планы уроков, оценочные комментарии, письма родителям, рубрики и шаблоны заданий.',
+      'Предлагает готовые педагогические сценарии: планы уроков, оценочные комментарии, письма родителям, рубрики и шаблоны заданий.',
   },
   {
     title: 'Quizlet',
     color: '#2ecc71',
     description:
-      'Подходит для систематического закрепления лексики, карточек, повторения по интервалам и быстрого запуска словарных мини-тестов.',
+      'Подходит для систематического закрепления лексики, карточек, повторения по интервалам и запуска словарных мини-тестов.',
   },
   {
     title: 'Canva Magic Studio',
@@ -39,9 +39,36 @@ const services = [
   },
 ];
 
+const comparisons = [
+  {
+    title: 'Twee',
+    strong: 'Быстро превращает видео и тексты в задания, удобен именно преподавателю английского.',
+    weak: 'Менее гибок для нестандартных методических сценариев, чем универсальные чат-модели.',
+    best: 'Когда нужен worksheet почти “из коробки”.',
+  },
+  {
+    title: 'Diffit',
+    strong: 'Очень полезен для адаптации материалов под уровень и ускорения работы с reading.',
+    weak: 'Не всегда достаточно тонко учитывает конкретную программу и специфику группы.',
+    best: 'Когда надо быстро сделать несколько версий текста под разные уровни.',
+  },
+  {
+    title: 'Quizlet',
+    strong: 'Силен в лексическом повторении и регулярной практике.',
+    weak: 'Не решает задачи полноценного методического проектирования урока.',
+    best: 'Когда цель — рециклинг словаря и автономная практика студентов.',
+  },
+  {
+    title: 'Canva',
+    strong: 'Отлично упаковывает материалы визуально и помогает делать профессионально выглядящие handouts.',
+    weak: 'Не заменяет языковую и методическую экспертизу.',
+    best: 'Когда у вас уже есть содержание, но нужна сильная визуальная подача.',
+  },
+];
+
 const UsefulServices: React.FC = () => {
   return (
-    <section id="services" className="section-container services-section">
+    <section className="section-container services-section tab-section">
       <h2 className="section-title">Специализированные ИИ-сервисы</h2>
       <div className="content-grid two-cols reversed">
         <div className="text-content">
@@ -72,6 +99,20 @@ const UsefulServices: React.FC = () => {
             alt="Подборка ИИ-сервисов для преподавателя"
             className="rounded-image glow-purple"
           />
+        </div>
+      </div>
+
+      <div className="info-panel glass-panel">
+        <h3>Сравнительные ориентиры по сервисам</h3>
+        <div className="matrix-grid">
+          {comparisons.map((item) => (
+            <article key={item.title} className="matrix-card">
+              <h4>{item.title}</h4>
+              <p><strong>Сильная сторона:</strong> {item.strong}</p>
+              <p><strong>Ограничение:</strong> {item.weak}</p>
+              <p><strong>Лучший сценарий:</strong> {item.best}</p>
+            </article>
+          ))}
         </div>
       </div>
 
