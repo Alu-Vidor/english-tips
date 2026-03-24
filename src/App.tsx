@@ -1,4 +1,3 @@
-import React from 'react';
 import HeroSection from './components/HeroSection';
 import PromptingBasics from './components/PromptingBasics';
 import ForeignModels from './components/ForeignModels';
@@ -13,13 +12,13 @@ function App() {
         <div className="logo">AI Educator</div>
         <div className="nav-links">
           <a href="#prompting">Промптинг</a>
-          <a href="#foreign">Зарубежные</a>
-          <a href="#russian">Российские</a>
-          <a href="#cases">Кейсы</a>
+          <a href="#foreign">Зарубежные модели</a>
+          <a href="#russian">Российские решения</a>
+          <a href="#cases">Сценарии</a>
           <a href="#services">Сервисы</a>
         </div>
       </nav>
-      
+
       <main>
         <HeroSection />
         <PromptingBasics />
@@ -30,7 +29,10 @@ function App() {
       </main>
 
       <footer className="footer glass-panel">
-        <p>© 2026 AI для Преподавателей ИЯ. Создан с помощью Vite и React.</p>
+        <p>
+          © 2026 AI для преподавателей английского языка. Методический гид по
+          моделям, сервисам и промптам для подготовки занятий.
+        </p>
       </footer>
     </div>
   );
